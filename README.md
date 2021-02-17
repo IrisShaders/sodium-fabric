@@ -42,8 +42,12 @@ platforms. If you'd prefer to not use a package manager, you can always grab the
 On Windows, the Oracle JDK/JRE builds should be avoided where possible due to their poor quality. Always prefer using
 the open-source builds from AdoptOpenJDK when possible.
 
-This fork requires a compiled jar of [Iris' Sodium-Compatibility branch](https://github.com/IrisShaders/Iris/tree/sodium-compatibility) to be placed in `$REPOSITORY_NAME/.gradle/loom-cache/1.16.4-projectmapped-net.fabricmc.yarn-1.16.4+build.1-v2/`. Create the folders if they don't already exist.
-
+This fork requires a compiled jar of [Iris' Sodium-Compatibility branch](https://github.com/IrisShaders/Iris/tree/sodium-compatibility) to be built, you can build it by running these commands:
+```
+git clone -b sodium-compatibility https://github.com/IrisShaders/Iris.git
+cd Iris
+./gradlew publishToMavenLocal
+```
 #### Compiling 
 Navigate to the directory you've cloned this repository and launch a build with Gradle using `gradlew build` (Windows)
 or `./gradlew build` (macOS/Linux). If you are not using the Gradle wrapper, simply replace `gradlew` with `gradle`
