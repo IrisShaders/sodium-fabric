@@ -47,6 +47,7 @@ public class SodiumOptionsGUI extends Screen {
         this.pages.add(SodiumGameOptionPages.general());
         this.pages.add(SodiumGameOptionPages.quality());
         this.pages.add(SodiumGameOptionPages.advanced());
+        this.pages.addAll(CustomOptions.getPages());
     }
 
     public void setPage(OptionPage page) {
