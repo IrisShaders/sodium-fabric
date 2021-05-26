@@ -22,3 +22,8 @@ jobs:
       run: cd ./iris && ./gradlew publishToMavenLocal && cd ..
     - name: Build artifacts
       run: ./gradlew build
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: build-artifacts
+        path: build/libs
