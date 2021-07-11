@@ -1,5 +1,6 @@
 package me.jellysquid.mods.sodium.client.render.chunk.format.xhfp;
 
+import me.jellysquid.mods.sodium.client.SodiumClientMod;
 import me.jellysquid.mods.sodium.client.gl.attribute.GlVertexAttributeFormat;
 import me.jellysquid.mods.sodium.client.gl.attribute.GlVertexFormat;
 import me.jellysquid.mods.sodium.client.model.vertex.buffer.VertexBufferView;
@@ -52,7 +53,7 @@ public class XHFPModelVertexType implements ChunkVertexType {
 
     @Override
     public ModelVertexSink createBufferWriter(VertexBufferView buffer, MaterialIdHolder idHolder) {
-        return new XHFPModelVertexBufferWriterNio(buffer, idHolder);
+        return SodiumClientMod.isDirectMemoryAccessEnabled() ? new XHFPModelVertexBufferWriterUnsafe(buffer, idHolder) : new XHFPModelVertexBufferWriterNio(buffer, idHolder);
     }
 
     @Override

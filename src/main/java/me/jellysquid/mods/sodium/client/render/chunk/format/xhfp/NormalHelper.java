@@ -65,7 +65,7 @@ public abstract class NormalHelper {
 	 * <p>Will work with triangles also. Assumes counter-clockwise winding order, which is the norm.
 	 * Expects convex quads with all points co-planar.
 	 */
-	public static void computeFaceNormal(@NotNull Vec3f saveTo, QuadView q) {
+	public static void computeFaceNormal(@NotNull Vec3f saveTo, QuadView q, boolean unsafe) {
 		//final Direction nominalFace = q.nominalFace();
 
 		/*if (GeometryHelper.isQuadParallelToFace(nominalFace, q)) {
@@ -74,20 +74,20 @@ public abstract class NormalHelper {
 			return;
 		}*/
 
-		final float x0 = q.x(0);
-		final float y0 = q.y(0);
-		final float z0 = q.z(0);
-		final float x1 = q.x(1);
-		final float y1 = q.y(1);
-		final float z1 = q.z(1);
-		final float x2 = q.x(2);
-		final float y2 = q.y(2);
-		final float z2 = q.z(2);
-		final float x3 = q.x(3);
-		final float y3 = q.y(3);
-		final float z3 = q.z(3);
+        final float x0 = q.x(0, unsafe);
+        final float y0 = q.y(0, unsafe);
+        final float z0 = q.z(0, unsafe);
+        final float x1 = q.x(1, unsafe);
+        final float y1 = q.y(1, unsafe);
+        final float z1 = q.z(1, unsafe);
+        final float x2 = q.x(2, unsafe);
+        final float y2 = q.y(2, unsafe);
+        final float z2 = q.z(2, unsafe);
+        final float x3 = q.x(3, unsafe);
+        final float y3 = q.y(3, unsafe);
+        final float z3 = q.z(3, unsafe);
 
-		final float dx0 = x2 - x0;
+        final float dx0 = x2 - x0;
 		final float dy0 = y2 - y0;
 		final float dz0 = z2 - z0;
 		final float dx1 = x3 - x1;
